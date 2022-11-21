@@ -24,7 +24,7 @@ object ShipControlHotbar : HotbarMenu() {
 		namedItem(Material.BLUE_STAINED_GLASS, "<blue>Left", null), // these might be
 		namedItem(Material.BLUE_STAINED_GLASS, "<blue>Right", null),
 		null,
-		namedItem(Material.FIRE_CHARGE, "<red>Fire", null),
+		namedItem(Material.NETHER_STAR, "<red>Fire", null), // fire charge would ignite starship
 		namedItem(Material.RED_CONCRETE, "<red>Unpilot Ship", null)
 	)
 
@@ -41,8 +41,8 @@ object ShipControlHotbar : HotbarMenu() {
 			0 -> ship.velocity += Vector3(player.eyeLocation.direction.normalize())
 			1 -> ship.velocity -= Vector3(player.eyeLocation.direction.normalize())
 			2 -> ship.velocity = Vector3.zero
-			4 -> ship.controlQueue.add { ship.queueRotation(RotationAmount.CLOCKWISE) }
-			5 -> ship.controlQueue.add { ship.queueRotation(RotationAmount.COUNTERCLOCKWISE) }
+			4 -> ship.controlQueue.add { ship.queueRotation(RotationAmount.COUNTERCLOCKWISE) }
+			5 -> ship.controlQueue.add { ship.queueRotation(RotationAmount.CLOCKWISE) }
 			7 -> ship.weapons.fire()
 			8 -> ship.controlQueue.add { ship.deactivateCraft() }
 		}
