@@ -80,4 +80,8 @@ open class Pilotable(origin: BlockLocation) : Craft(origin) {
 		pilotedCrafts.remove(this)
 		return true
 	}
+
+		when (playerdeathevent) {
+  	 deactivateCraft()
+	}
 }
